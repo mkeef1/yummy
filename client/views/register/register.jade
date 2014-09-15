@@ -1,13 +1,13 @@
 h3 Register
 .row
   .col-xs-3
-    form(novalidate, name='registerForm', role='form')
+    form(novalidate, name='userForm', role='form')
       .form-group
         label(for='email') Email
-        input.form-control#email(name='email', type='text', ng-model='register.email', required, autofocus)
+        input.form-control#email(name='email', type='text', ng-model='user.email', required, autofocus)
       .form-group
         label(for='password') Password
-        input.form-control#password(name='password', type='text', ng-model='register.password', ng-minlength='3', required)
+        input.form-control#password(name='password', type='text', ng-model='user.password', ng-minlength='3', required)
       .form-group
-        button.btn.btn-success(ng-show='registerForm.$valid', ng-click='register()') Register
+        button.btn.btn-success(ng-show='userForm.$valid', ng-click='register()') Register
   .col-xs-9
