@@ -5,11 +5,11 @@
   .factory('Category', ['$http', function($http){
 
     function all(){
-      return $http.get('/bookmarks');
+      return $http.get('/categories');
     }
 
     function create(category){
-      return $http.post('/bookmarks', category);
+      return $http.post('/categories', category);
     }
 
     return {all:all, create:create};

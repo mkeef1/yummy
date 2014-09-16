@@ -9,6 +9,7 @@ h3 bookmarks
       button.btn.btn-success(ng-show='categoryForm.$valid', ng-click='addCategory()') Add Category
   .col-xs-9
 
+
 .row
   .col-xs-4
     table.table.table-bordered
@@ -19,3 +20,31 @@ h3 bookmarks
         tr(ng-repeat='c in categories')
           td {{c.name}}
   .col-xs-8
+table.table.table-bordered
+  thead
+    tr
+      th Name
+      th Category
+      th Date
+  tbody
+    tr(ng-repeat='b in bookmarks')
+      td: a(href="{{b.url}}") {{b.name}}
+      td {{b.category}}
+      td {{b.created | date: 'MMM dd, yyyy'}}
+.row
+  .col-xs-3
+    h4 Add Bookmark
+    .backdrop
+      form(role='form', novalidate, name='bookmarkForm')
+        .form-group
+          label(for='name') Name
+          input.form-control#name(required, ng-model='bookmark.name', type='text', name='name')
+        .form-group
+          label(for='url') URL
+          input.form-control#url(required, ng-model='bookmark.url', type='url', name='url')
+        .form-group
+          label(for='category') Category
+          select.form-control#category(required, ng-model='bookmark.category', ng-options='c._id as c.name for c in categories', name='category')
+            option(value='') Select Category
+        button.btn.btn-primary(type='submit', ng-show='bookmarkForm.$valid', ng-click='addBookmark()') Add Bookmark
+
